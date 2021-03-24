@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  color: #1d1d1d;
+}
+
+html,
+body {
+	height: 100%;
+  background-color: #a84914;
+}
+
+.candle-wrapper {
+  height: 100vh;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  overflow: hidden;
+}
+
+.candle {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+  justify-content: flex-end;
+  z-index: 0;
+}
+
+.candle-flame {
+  width: 36px;
+  height: 72px;
+  transform-origin: bottom;
+  background: #ffad00;
+  border-radius: 8px 8px 8px 8px / 20px 20px 8px 8px;
+  box-shadow: 0px 0px 20px 0px #ffad00;
+  animation: flame-twirl 15s ease infinite, glow 2s ease infinite;
+  transition: transform 0.2s ease-out;
+  z-index: 2;
+}
+
+.candle-wick {
+  height: 32px;
+  width: 8px;
+  background: #ad87a9;
+  margin-top: -25%;
+  z-index: 1;
+}
+
+.candle-wax {
+  width: 84px;
+  height: 320px;
+  background: #ffffff;
+  border-radius: 18px 18px 0 0;
+  box-shadow: inset -24px 0px 0px -12px #d8deed;
+}
+
+@keyframes flame-twirl {
+	0%,
+	22%,
+	49%,
+	62%,
+	81%,
+	100% {
+		border-radius: 2px 40px 20px 20px / 64px 64px 20px 20px;
+	}
+	14%,
+	32%,
+	56%,
+	70%,
+	89% {
+		border-radius: 40px 2px 20px 20px / 64px 64px 20px 20px;
+	}
+}
+
+@keyframes glow {
+	0%,
+	30%,
+	60%,
+	80%,
+	100% {
+		box-shadow: 0 0 80px 20px #ffad00;
+	}
+	20%,
+	50%,
+	70% {
+		box-shadow: 0 0 64px 18px #ffad00;
+	}
+}
+
+.container {
+  padding: 1rem;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h1 {
+  text-align: center;
+  color: white;
+  margin-top: 32px;
+  font-size: 32px;
+  transition: margin 0.75s ease-out;
+}
+
+button {
+  transition: transform 0.1s ease-in;
+}
+
+button:focus {
+  outline: none;
+}
+
+button:active {
+  transform: scale(0.96);
+}
+
+.blow-button {
+  width: 100%;
+  max-width: 320px;
+  margin-bottom: 64px;
+  border: solid 4px white;
+  color: white;
+  font-size: 18px;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-radius: 999px;
+  background-color: #F95612;
+  padding: 0.75rem 1rem;
+  z-index: 1;
+  transition: transform 0.1s ease-in, margin 0.75s ease-out;
+}
+
+.modal-wrapper {
+  position: absolute;
+  min-height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 3;
+  padding: 1rem;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s linear;
+}
+
+.modal {
+  background-color: white;
+  border-radius: 4px;
+  padding: 1rem;
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
+}
+
+.close-button {
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  border: 0;
+  background-color: #F95612;
+  color: white;
+  font-weight: bold;
+}
